@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import CardImage from "./CardImage.jsx";
 import CardTitle from "./CardTitle";
 import ScoreBoard from "./ScoreBoard.jsx";
+import "./Card.css";
 
 export default function Card() {
     const [arr, setArr] = useState([]);
@@ -10,7 +11,7 @@ export default function Card() {
     const [bestscore, setBestscore] = useState(0);
     useEffect(() => {
         async function callApi() {
-            const res = await fetch(import.meta.env.VITE_POKEMON_API);
+            const res = await fetch("https://pokeapi.co/api/v2/pokemon?limit=13");
             const data = await res.json();
             let fullData = [];
             for(let i=0; i<data.results.length; i++) {
@@ -53,13 +54,22 @@ export default function Card() {
     }
     return (
         <div className="card">
-            <ScoreBoard score={score} bestscore={bestscore}/>
+            <div className="upper">
+                <div className="intro">
+                    <div className="heading"><h1>MEMORY CARDS GAME</h1></div>
+                    <div className="desc"><p>Get points by clicking on an image but don't click on any more than once!</p></div>
+                </div>
+                <div className="score">
+                    <ScoreBoard score={score} bestscore={bestscore}/>
+                </div>
+            </div>
+            <div className="lower">
             {arr.map((item, i) => (
                 <div className="img" key={i} onClick={() => handleClick(item)}>
                     <CardImage item={item}/>
                 </div>
             ))}
-            
+            </div>
         </div>
     );
 }

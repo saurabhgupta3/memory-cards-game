@@ -1,5 +1,5 @@
 export default function HighScore({bestscore}) {
     return <div className="highscore">
-        {bestscore}
+        Best Score: {bestscore}
     </div>
 }

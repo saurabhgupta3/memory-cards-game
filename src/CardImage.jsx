@@ -1,10 +1,15 @@
 import CardTitle  from "./CardTitle";
+import "./CardImage.css";
 
 export default function CardImage({item}) {
     return (
         <>
+        <div className="cardimage">
             <img src={item.img} alt="api image" />
-            <CardTitle title={item.title} />
+            <div className="title">
+            <CardTitle title={item.title}/>
+            </div>
+        </div>
         </>
     );
 }

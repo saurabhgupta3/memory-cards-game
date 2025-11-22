@@ -1,9 +1,12 @@
 import Card from "./Card.jsx";
+import "./App.css";
 
 export default function App() {
   return (
     <>
-      <Card/>
+      <div className="card">
+        <Card/>
+      </div>
     </>
   )
 }
