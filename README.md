@@ -1,2 +1,2 @@
-# MEMORY CARDS GAME (Build By Saurabh Gupta)
+# MEMORY CARDS GAME
 A memory based game.
